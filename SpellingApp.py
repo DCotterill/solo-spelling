@@ -202,7 +202,7 @@ def spell_word():
     choose_next_word()
 
     word_blanks = "_ " * len(word)
-    word_speech = word + '   As in ' + all_word_meanings[word]
+    word_speech = + "'" + word + '   As in ' + all_word_meanings[word] + "'"
 
     print "say:" + word_speech
     system('say ' + word_speech)
