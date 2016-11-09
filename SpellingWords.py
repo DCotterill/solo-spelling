@@ -1,6 +1,13 @@
 import random
 import csv
 import easygui
+from os import system
+
+word_meanings = {"come":"please come over here",
+                 "again":"can you do it again",
+                 "boat":"the boat is in the water",
+                 "look":"look at me",
+                 "could":"could you help me"}
 
 gold_words = ["a","and","be", "I","in","is", "it","of","that","the","to","was"]
 red_words = ["all","as","are","at","but","for","had","have","he","her","his","not","on","one","said","so","they","we",
@@ -23,18 +30,21 @@ lime_words = ["another","bad","black","don't","father","found","got","head","kno
 lemon_words = ["any","because","blue","every","fell","gave","green","house","last","long","morning","open","red",
                "sat","soon","than","time","very","why","year"]
 
-all_words = gold_words \
-            + red_words \
-            + blue_words \
-            + green_words \
-            + orange_words \
-            + indigo_words \
-            + violet_words \
-            + pink_words \
-            + purple_words \
-            + aqua_words \
-            + lime_words \
-            + lemon_words
+test_words = ["come", "again", "boat", "could"]
+all_words = test_words
+
+    # gold_words \
+    #         + red_words \
+    #         + blue_words \
+    #         + green_words \
+    #         + orange_words \
+    #         + indigo_words \
+    #         + violet_words \
+    #         + pink_words \
+    #         + purple_words \
+    #         + aqua_words \
+    #         + lime_words \
+    #         + lemon_words
 
 person_name = easygui.enterbox('Input your name (filename of saved progress):')
 
@@ -42,7 +52,7 @@ correct_list = {}
 
 correct_threshold = 3
 try:
-    with open("./" + person_name + ".csv", 'r') as lines:
+    with open("./" + person_name + "-spelling.csv", 'r') as lines:
         reader = csv.reader(lines)
         correct_count = dict((rows[0],int(rows[1])) for rows in reader)
 except IOError:
@@ -60,7 +70,7 @@ def create_correct_lists():
 correct_list = {}
 create_correct_lists()
 
-easygui.msgbox("Number of words you know: " + str(len(correct_list[correct_threshold]))
+easygui.msgbox("Number of words you know how to spell: " + str(len(correct_list[correct_threshold]))
         + "\n\n" + str(correct_list.get(3,[])))
 
 print correct_list.get(1,[])
@@ -73,15 +83,44 @@ def choose_next_word():
         next_word = random.choice(all_words)
     return next_word
 
+def find_first_wrong_letter(word, guess):
+    i = 0
+    while (word[i] == guess[i]):
+        i = i + 1
+    return i
 
 correct_answer = 'No'
 while (correct_answer != 'Exit'):
     word = choose_next_word()
-    correct_answer = easygui.buttonbox(msg=word, choices=('Yes', 'No', 'Exit'), default_choice='Yes')
-    if correct_answer == 'Yes':
-        correct_count[word] = int(correct_count.get(word,0)) + 1
-    else:
+    word_blanks = "_ " * len(word)
+    word_speech = word + '. As in ' + word_meanings[word]
+
+    system('say ' + word_speech)
+
+    answer = easygui.enterbox(msg=word_blanks)
+
+    while answer != word:
+        if (len(word) != len(answer)):
+            message = "Thats not right, the word " + word + " has " + str(len(word)) + " letters."
+            system("say " + message)
+
+        else:
+            message = "Thats not right, would you like a hint?"
+            system("say " + message)
+            hint_yn = easygui.ynbox(message)
+            if hint_yn:
+                wrong_letter = find_first_wrong_letter(word, answer)
+                word_blanks = word_blanks[0:wrong_letter*2] + word[wrong_letter] + word_blanks[wrong_letter*2 + 1:len(word_blanks)]
+
+
+        system('say ' + word_speech)
+        answer = easygui.enterbox(msg=word_blanks)
         correct_count[word] = 0
+
+    correct_count[word] = int(correct_count.get(word,0)) + 1
+    message = "Well done! You got it right."
+    system("say " + message)
+    easygui.textbox(message)
 
 print correct_count
 
@@ -118,7 +157,7 @@ if (check_all_colour_known(pink_words)):
 
 easygui.msgbox(known_words_message)
 
-writer = csv.writer(open(person_name + '.csv', mode='w'))
+writer = csv.writer(open(person_name + '-spelling.csv', mode='w'))
 for key, value in correct_count.items():
     writer.writerow([key, value])
 
