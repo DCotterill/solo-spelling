@@ -202,7 +202,7 @@ def spell_word():
     choose_next_word()
 
     word_blanks = "_ " * len(word)
-    word_speech = word + '. As in ' + all_word_meanings[word]
+    word_speech = word + '   As in ' + all_word_meanings[word]
 
     system('say ' + word_speech)
 
@@ -223,7 +223,7 @@ def do_spell_word():
     guess = request.forms.get("guess")
 
     if (len(word) != len(guess)):
-        message = "Thats not right, the word " + word + " has " + str(len(word)) + " letters."
+        message = "Thats not right   The word " + word + " has " + str(len(word)) + " letters."
         system("say " + message)
         correct_count[word] = 0
 
