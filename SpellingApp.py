@@ -202,9 +202,8 @@ def spell_word():
     choose_next_word()
 
     word_blanks = "_ " * len(word)
-    word_speech = "'" + word + '   As in ' + all_word_meanings[word] + "'"
+    word_speech = "'" + word + '. As in ' + all_word_meanings[word] + ". " + word +  "'"
 
-    print "say:" + word_speech
     system('say ' + word_speech)
 
     create_correct_lists()
@@ -224,8 +223,7 @@ def do_spell_word():
     guess = request.forms.get("guess")
 
     if (len(word) != len(guess)):
-        message = "Thats not right   The word " + word + " has " + str(len(word)) + " letters."
-        print "say:" + message
+        message = "Thats not right. The word " + word + " has " + str(len(word)) + " letters."
         system("say " + message)
         correct_count[word] = 0
 
@@ -256,8 +254,7 @@ def do_try_again():
         wrong_letter = find_first_wrong_letter(word, guess)
         word_blanks = word_blanks[0:wrong_letter*2] + word[wrong_letter] + word_blanks[wrong_letter*2 + 1:len(word_blanks)]
 
-    word_speech = word + '   As in ' + all_word_meanings[word]
-    print "say:" + word_speech
+    word_speech = "'" + word + '. As in ' + all_word_meanings[word] + ". " + word +  "'"
     system('say ' + word_speech)
 
     create_correct_lists()
