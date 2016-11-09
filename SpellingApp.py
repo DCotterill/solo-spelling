@@ -254,7 +254,7 @@ def do_try_again():
         wrong_letter = find_first_wrong_letter(word, guess)
         word_blanks = word_blanks[0:wrong_letter*2] + word[wrong_letter] + word_blanks[wrong_letter*2 + 1:len(word_blanks)]
 
-    word_speech = word + '. As in ' + all_word_meanings[word]
+    word_speech = word + '   As in ' + all_word_meanings[word]
     system('say ' + word_speech)
 
     create_correct_lists()
