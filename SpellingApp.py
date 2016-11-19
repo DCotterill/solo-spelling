@@ -133,6 +133,32 @@ word_meanings_week5 = {
                 "short":"The opposite of long is short",
                 "rubbish":"The bin is full of rubbish"
                 }
+
+word_meanings_week6 = {
+                "toy": "I played with the toy",
+                "boy": "Dillon is a boy",
+                "oil": "You need oil in your car",
+                "coin": "I flipped the coin",
+                "join": "You can join lego pieces together",
+                "ear": "Mr Bean can wiggle his ear",
+                "year": "Happy new year",
+                "toys": "I bought toys from the shop",
+                "here": "I live here",
+                "fear": "I fear zombies",
+                "near": "The boy is near the truck",
+                "dear": "I wrote a letter to my dear friend",
+                "deer": "There are lots of deer in this park"
+                # "annoy": "You annoy me",
+                # "boil": "The water is on the boil",
+                # "enjoy": "I enjoy playing Pokemon cards",
+                # "destroy": "I will destroy the world",
+                # "noise": "Shouting makes a lot of noise",
+                # "point": "You can point with your finger",
+                # "beard": "I have a long beard",
+                # "feared": "I have always feared zombies",
+                # "clear": "The sky is clear",
+                # "cheering": "I am cheering my friend at the soccer game",
+}
 all_word_meanings = dict(word_meanings_week5.items() + word_meanings_week4.items() + word_meanings_week3.items() + word_meanings_week2.items())
 all_words = all_word_meanings.keys()
 
@@ -170,8 +196,6 @@ def find_first_wrong_letter(word, guess):
 
 @route('/spelling')
 def spelling():
-    # system("say welcome to the spelling app")
-
     return template ('welcome')
 
 @route('/spelling', method='POST')
@@ -202,9 +226,7 @@ def spell_word():
     choose_next_word()
 
     word_blanks = "_ " * len(word)
-    word_speech = "'" + word + '. As in ' + all_word_meanings[word] + ". " + word +  "'"
-
-    system('say ' + word_speech)
+    word_speech = word + '.  As in ' + all_word_meanings[word]
 
     create_correct_lists()
     progress_message = "You can spell " + str(len(correct_list[correct_threshold])) + " out of " + \
@@ -212,7 +234,7 @@ def spell_word():
 
     percent = 100 * len(correct_list[correct_threshold]) / len(all_words)
 
-    return template("spell-word", word_blanks=word_blanks, correct_number = str(len(correct_list[correct_threshold])),
+    return template("spell-word", word_speech=word_speech, word_blanks=word_blanks, correct_number = str(len(correct_list[correct_threshold])),
                                 total_words = str(len(all_words)), progress_message = progress_message,
                                 percent = str(int(percent)))
 
@@ -224,10 +246,10 @@ def do_spell_word():
 
     if (len(word) != len(guess)):
         message = "Thats not right. The word " + word + " has " + str(len(word)) + " letters."
-        system("say " + message)
+        # system("say " + message)
         correct_count[word] = 0
 
-        return template("wrong_length", length=str(len(word)))
+        return template("wrong_length", length=str(len(word)), message=message)
 
     if (guess == word):
         if (word_blanks == "_ " * len(word)):  #there's not been a hint
@@ -238,7 +260,6 @@ def do_spell_word():
 
         return template("correct")
     else:
-        # system("say " + message)
         correct_count[word] = 0
 
         return template("wrong_spelling")
@@ -254,8 +275,8 @@ def do_try_again():
         wrong_letter = find_first_wrong_letter(word, guess)
         word_blanks = word_blanks[0:wrong_letter*2] + word[wrong_letter] + word_blanks[wrong_letter*2 + 1:len(word_blanks)]
 
-    word_speech = "'" + word + '. As in ' + all_word_meanings[word] + ". " + word +  "'"
-    system('say ' + word_speech)
+    word_speech = word + '. As in ' + all_word_meanings[word]
+    # system('say ' + word_speech)
 
     create_correct_lists()
     progress_message = "You can spell " + str(len(correct_list[correct_threshold])) + " out of " + \
@@ -263,7 +284,7 @@ def do_try_again():
 
     percent = 100 * len(correct_list[correct_threshold]) / len(all_words)
 
-    return template("spell-word", word_blanks=word_blanks, correct_number = str(len(correct_list[correct_threshold])),
+    return template("spell-word", word_speech=word_speech, word_blanks=word_blanks, correct_number = str(len(correct_list[correct_threshold])),
                                 total_words = str(len(all_words)), progress_message = progress_message,
                                 percent = str(int(percent)))
 @route('/css/<filename>')

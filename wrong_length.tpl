@@ -32,7 +32,20 @@
     <![endif]-->
   </head>
 
-  <body>
+<script>
+function speak(text) {
+  // Create a new instance of SpeechSynthesisUtterance.
+	var msg = new SpeechSynthesisUtterance();
+
+  // Set the text.
+	msg.text = text;
+
+  // Queue this utterance.
+	window.speechSynthesis.speak(msg);
+}
+</script>
+
+  <body onload="speak('{{message}}')">
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
