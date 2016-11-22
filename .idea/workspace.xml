@@ -32,10 +32,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SpellingApp.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="SpellingApp.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SpellingApp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="183" column="0" selection-start="8375" selection-end="8375" vertical-scroll-proportion="0.91689754" vertical-offset="2369" max-vertical-offset="5295">
+            <state line="172" column="30" selection-start="7908" selection-end="7908" vertical-scroll-proportion="0.0" vertical-offset="2369" max-vertical-offset="5295">
               <folding />
             </state>
           </provider>
@@ -80,7 +80,7 @@
       <file leaf-file-name="ellie-spelling.csv" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ellie-spelling.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="101" column="5" selection-start="779" selection-end="779" vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="1725">
+            <state line="102" column="5" selection-start="784" selection-end="784" vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="1740">
               <folding />
             </state>
           </provider>
@@ -95,10 +95,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="spell-word.tpl" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="spell-word.tpl" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/spell-word.tpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="85" column="28" selection-start="2949" selection-end="2949" vertical-scroll-proportion="0.0" vertical-offset="1153" max-vertical-offset="1845">
+            <state line="50" column="67" selection-start="1898" selection-end="1898" vertical-scroll-proportion="0.29639888" vertical-offset="643" max-vertical-offset="1860">
               <folding />
             </state>
           </provider>
@@ -134,8 +134,8 @@
         <option value="$PROJECT_DIR$/welcome.tpl" />
         <option value="$PROJECT_DIR$/ellie-spelling.csv" />
         <option value="$PROJECT_DIR$/wrong_length.tpl" />
-        <option value="$PROJECT_DIR$/spell-word.tpl" />
         <option value="$PROJECT_DIR$/SpellingApp.py" />
+        <option value="$PROJECT_DIR$/spell-word.tpl" />
       </list>
     </option>
   </component>
@@ -529,14 +529,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ellie-spelling.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="101" column="5" selection-start="779" selection-end="779" vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="1725">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SpellingWords.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="162" column="0" selection-start="6039" selection-end="6181" vertical-scroll-proportion="0.0" vertical-offset="2290" max-vertical-offset="2595">
+        <state line="102" column="5" selection-start="784" selection-end="784" vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="1740">
           <folding />
         </state>
       </provider>
@@ -562,16 +555,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spell-word.tpl">
+    <entry file="file://$PROJECT_DIR$/SpellingApp.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="85" column="28" selection-start="2949" selection-end="2949" vertical-scroll-proportion="0.0" vertical-offset="1153" max-vertical-offset="1845">
+        <state line="172" column="30" selection-start="7908" selection-end="7908" vertical-scroll-proportion="0.0" vertical-offset="2369" max-vertical-offset="5295">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SpellingApp.py">
+    <entry file="file://$PROJECT_DIR$/SpellingWords.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="183" column="0" selection-start="8375" selection-end="8375" vertical-scroll-proportion="0.91689754" vertical-offset="2369" max-vertical-offset="5295">
+        <state line="162" column="0" selection-start="6039" selection-end="6181" vertical-scroll-proportion="0.0" vertical-offset="2290" max-vertical-offset="2595">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spell-word.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="67" selection-start="1898" selection-end="1898" vertical-scroll-proportion="0.29639888" vertical-offset="643" max-vertical-offset="1860">
           <folding />
         </state>
       </provider>

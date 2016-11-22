@@ -48,7 +48,7 @@
 
         <script>
         $(window).load(function() {
-            setTimeout(function() { speak('{{word_speech}}');}, 1000);
+            setTimeout(function() { speak('{{word_speech}}');}, 100);
         });
         </script>
 
@@ -96,8 +96,9 @@
                 <input type="text" class="form-control" autocomplete="off" autofocus id="guess" name="guess" size="10" maxlength="10"/>
               </div>
               <input value="Go!" type="submit" class="btn btn-primary"/>
+              <input value="Speak" type ="button" onclick="speak('{{word_speech}}')" class="btn btn-primary"/>
+
           </form>
-          <input value="Speak" onclick="speak('{{word_speech}}')" class="btn btn-primary"/>
       </div>
 
     </div>
