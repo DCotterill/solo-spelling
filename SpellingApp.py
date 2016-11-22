@@ -254,7 +254,7 @@ def do_spelling():
     person_name = request.forms.get("name")
 
     try:
-        with open("./" + person_name + "-spelling.csv", 'r') as lines:
+        with open("./" + person_name.lower() + "-spelling.csv", 'r') as lines:
             reader = csv.reader(lines)
             correct_count = dict((rows[0],int(rows[1])) for rows in reader)
     except IOError:
