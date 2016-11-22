@@ -30,21 +30,32 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+        <script  src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+        <script>
+        function speak(text) {
+          // Create a new instance of SpeechSynthesisUtterance.
+          var msg = new SpeechSynthesisUtterance();
+
+          // Set the text.
+          msg.text = text;
+
+          // Queue this utterance.
+          speechSynthesis.speak(msg);
+        }
+        </script>
+
+        <script>
+        $(window).load(function() {
+            setTimeout(function() { speak('{{word_speech}}');}, 1000);
+        });
+        </script>
+
+
   </head>
 
-<script>
-function speak(text) {
-  // Create a new instance of SpeechSynthesisUtterance.
-	var msg = new SpeechSynthesisUtterance();
-
-  // Set the text.
-	msg.text = text;
-
-  // Queue this utterance.
-	window.speechSynthesis.speak(msg);
-}
-</script>
-  <body onload="speak('{{word_speech}}')">
+  <body>
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
@@ -86,6 +97,7 @@ function speak(text) {
               </div>
               <input value="Go!" type="submit" class="btn btn-primary"/>
           </form>
+          <input value="Speak" onclick="speak('{{word_speech}}')" class="btn btn-primary"/>
       </div>
 
     </div>

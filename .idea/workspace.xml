@@ -32,10 +32,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SpellingApp.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="SpellingApp.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SpellingApp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="278" column="14" selection-start="11118" selection-end="11118" vertical-scroll-proportion="0.0" vertical-offset="3988" max-vertical-offset="4590">
+            <state line="183" column="0" selection-start="8375" selection-end="8375" vertical-scroll-proportion="0.91689754" vertical-offset="2369" max-vertical-offset="5295">
               <folding />
             </state>
           </provider>
@@ -59,10 +59,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="wrong_length.tpl" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="wrong_length.tpl" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wrong_length.tpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="37" selection-start="1654" selection-end="1654" vertical-scroll-proportion="0.66759" vertical-offset="464" max-vertical-offset="1485">
+            <state line="47" column="35" selection-start="1652" selection-end="1652" vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="1485">
               <folding />
             </state>
           </provider>
@@ -80,7 +80,7 @@
       <file leaf-file-name="ellie-spelling.csv" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ellie-spelling.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="100" column="5" selection-start="770" selection-end="770" vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="1710">
+            <state line="101" column="5" selection-start="779" selection-end="779" vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="1725">
               <folding />
             </state>
           </provider>
@@ -98,7 +98,7 @@
       <file leaf-file-name="spell-word.tpl" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spell-word.tpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="38" selection-start="1603" selection-end="1603" vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="1665">
+            <state line="85" column="28" selection-start="2949" selection-end="2949" vertical-scroll-proportion="0.0" vertical-offset="1153" max-vertical-offset="1845">
               <folding />
             </state>
           </provider>
@@ -133,9 +133,9 @@
         <option value="$PROJECT_DIR$/wrong_spelling.tpl" />
         <option value="$PROJECT_DIR$/welcome.tpl" />
         <option value="$PROJECT_DIR$/ellie-spelling.csv" />
+        <option value="$PROJECT_DIR$/wrong_length.tpl" />
         <option value="$PROJECT_DIR$/spell-word.tpl" />
         <option value="$PROJECT_DIR$/SpellingApp.py" />
-        <option value="$PROJECT_DIR$/wrong_length.tpl" />
       </list>
     </option>
   </component>
@@ -529,7 +529,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ellie-spelling.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="100" column="5" selection-start="770" selection-end="770" vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="1710">
+        <state line="101" column="5" selection-start="779" selection-end="779" vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="1725">
           <folding />
         </state>
       </provider>
@@ -541,23 +541,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SpellingApp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="278" column="14" selection-start="11118" selection-end="11118" vertical-scroll-proportion="0.0" vertical-offset="3988" max-vertical-offset="4590">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/spelling.tpl">
       <provider selected="true" editor-type-id="text-editor">
         <state line="67" column="10" selection-start="2560" selection-end="2560" vertical-scroll-proportion="0.0" vertical-offset="959" max-vertical-offset="1320">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spell-word.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="38" selection-start="1603" selection-end="1603" vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="1665">
           <folding />
         </state>
       </provider>
@@ -571,7 +557,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wrong_length.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="37" selection-start="1654" selection-end="1654" vertical-scroll-proportion="0.66759" vertical-offset="464" max-vertical-offset="1485">
+        <state line="47" column="35" selection-start="1652" selection-end="1652" vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="1485">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spell-word.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="85" column="28" selection-start="2949" selection-end="2949" vertical-scroll-proportion="0.0" vertical-offset="1153" max-vertical-offset="1845">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SpellingApp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="183" column="0" selection-start="8375" selection-end="8375" vertical-scroll-proportion="0.91689754" vertical-offset="2369" max-vertical-offset="5295">
           <folding />
         </state>
       </provider>

@@ -147,19 +147,66 @@ word_meanings_week6 = {
                 "fear": "I fear zombies",
                 "near": "The boy is near the truck",
                 "dear": "I wrote a letter to my dear friend",
-                "deer": "There are lots of deer in this park"
-                # "annoy": "You annoy me",
-                # "boil": "The water is on the boil",
-                # "enjoy": "I enjoy playing Pokemon cards",
-                # "destroy": "I will destroy the world",
-                # "noise": "Shouting makes a lot of noise",
-                # "point": "You can point with your finger",
-                # "beard": "I have a long beard",
-                # "feared": "I have always feared zombies",
-                # "clear": "The sky is clear",
-                # "cheering": "I am cheering my friend at the soccer game",
-}
-all_word_meanings = dict(word_meanings_week5.items() + word_meanings_week4.items() + word_meanings_week3.items() + word_meanings_week2.items())
+                "deer": "There are lots of deer in this park",
+                "annoy": "You annoy me",
+                "boil": "The water is on the boil",
+                "enjoy": "I enjoy playing Pokemon cards",
+                "destroy": "I will destroy the world",
+                "noise": "Shouting makes a lot of noise",
+                "point": "You can point with your finger",
+                "beard": "I have a long beard",
+                "feared": "I have always feared zombies",
+                "clear": "The sky is clear",
+                "cheering": "I am cheering my friend at the soccer game"}
+
+word_meanings_week7 = {
+                # "the": "",
+                # "thin": "",
+                # "with": "",
+                "bath": "I was dirty so had a bath",
+                "path": "I walked down the path",
+                # "that": "",
+                # "thick": "",
+                # "them": "",
+                # "then": "",
+                "three": "one plus two is three",
+                # "these": "",
+                "birthday": "We sang happy birthday",
+                "month": "January is the first month of the year",
+                "mouth": "my mouth is open",
+                "teeth": "I bite with my teeth",
+                # "thank": "",
+                "third": "i came third in the race",
+                "thirsty": "i was thirsty so I drank some water",
+                # "gather": "",
+                "feather": "as light as a feather"
+                }
+
+word_meanings_week8 = {
+                "air": "",
+                "pair": "",
+                "hair": "",
+                "chair": "",
+                "where": "",
+                "their": "",
+                "stairs": "",
+                "bare": "",
+                "bear": "",
+                "dare": "",
+                "fair": "",
+                "repair": "",
+                "anywhere": "",
+                "square": "",
+                "careful": "",
+                "downstairs": "",
+                "scare": ""
+                }
+all_word_meanings = dict(word_meanings_week7.items()
+                         + word_meanings_week6.items()
+                         + word_meanings_week5.items()
+                         + word_meanings_week4.items()
+                         + word_meanings_week3.items()
+                         + word_meanings_week2.items())
 all_words = all_word_meanings.keys()
 
 
@@ -299,5 +346,5 @@ def server_static(filename):
 def server_static(filename):
     return static_file(filename, root='./fonts/')
 
-run(host='localhost', port=8080, debug=True)
+run(host='0.0.0.0', port=8080, debug=True)
 
