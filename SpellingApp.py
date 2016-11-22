@@ -289,7 +289,7 @@ def spell_word():
 def do_spell_word():
     global guess
 
-    guess = request.forms.get("guess")
+    guess = request.forms.get("guess").lower()
 
     if (len(word) != len(guess)):
         message = "Thats not right. The word " + word + " has " + str(len(word)) + " letters."
