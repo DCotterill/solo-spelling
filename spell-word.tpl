@@ -93,7 +93,7 @@
           <form action="/spell-word" method="post">
               <div class="form-group" align="left">
                 <label for="guess">{{word_blanks}}</label>
-                <input type="text" class="form-control" autocomplete="off" autofocus id="guess" name="guess" size="10" maxlength="10"/>
+                <input type="text" class="form-control" spellcheck="false" autocomplete="off" autofocus id="guess" name="guess" size="10" maxlength="10"/>
               </div>
               <input value="Go!" type="submit" class="btn btn-primary"/>
               <input value="Speak" type ="button" onclick="speak('{{word_speech}}')" class="btn btn-primary"/>
