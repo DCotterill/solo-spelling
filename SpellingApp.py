@@ -92,6 +92,7 @@ def spell_word():
     choose_next_word()
 
     word_blanks = "_ " * len(word)
+    print all_word_meanings[word]
     word_speech = word + '.  As in ' + all_word_meanings[word]
 
     create_correct_lists()
@@ -118,7 +119,7 @@ def do_spell_word():
 
         return template("templates/wrong_length", length=str(len(word)), message=message)
 
-    if (guess == word):
+    if (guess.lower() == word.lower()):
         if (word_blanks == "_ " * len(word)):  #there's not been a hint
             correct_count[word] = int(correct_count.get(word,0)) + 1
         writer = csv.writer(open(person_name + '-spelling.csv', mode='w'))
