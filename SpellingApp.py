@@ -26,8 +26,8 @@ word_meanings_week9 = {"ever":"",
                        "November":"",
                        }
 all_word_meanings = {}
-all_words = {}
-
+all_words = set()
+word_files = []
 
 person_name = ""
 correct_list = {}
@@ -36,22 +36,24 @@ correct_count = {}
 word = ""
 word_blanks = ""
 
+
 def create_correct_lists():
     global correct_list
+    global all_words
     correct_list = {}
 
     for i in range(1, correct_threshold + 1):
         current_list = correct_list.get(i, [])
         for k, v in correct_count.iteritems():
-            if int(v) == int(i):
+            if int(v) == int(i) and k in all_words:
                 current_list.append(k)
         correct_list[i] = current_list
 
 def choose_next_word():
     global word
-    word = random.choice(all_words)
+    word = random.choice(tuple(all_words))
     while (correct_count.get(word,0) >= correct_threshold):
-        word = random.choice(all_words)
+        word = random.choice(tuple(all_words))
 
 def find_first_wrong_letter(word, guess):
     i = 0
@@ -64,6 +66,29 @@ def find_first_wrong_letter(word, guess):
 def spelling():
     return template ('templates/welcome')
 
+@route('/summary')
+def summary():
+    #TODO: FIX UP THIS WHOLE METHOD WITH STATUS
+    global word
+    global word_blanks
+
+    choose_next_word()
+
+    word_blanks = "_ " * len(word)
+    word_speech = "Spell the word " + word + '    .  As in  ' + all_word_meanings[word] + ". "
+    print word_speech
+
+    create_correct_lists()
+    progress_message = "You can spell " + str(len(correct_list[correct_threshold])) + " out of " + \
+                       str(len(all_words)) + " correctly."
+
+    percent = 100 * len(correct_list[correct_threshold]) / len(all_words)
+
+    return template("templates/spell-word", word_speech=word_speech, word_blanks=word_blanks,
+                                correct_number = str(len(correct_list[correct_threshold])),
+                                total_words = str(len(all_words)), progress_message = progress_message,
+                                percent = str(int(percent)))
+
 @route('/spelling', method='POST')
 def do_spelling():
     global correct_count
@@ -71,6 +96,9 @@ def do_spelling():
     correct_count = {}
 
     person_name = request.forms.get("name")
+
+    load_assignments(person_name)
+    load_words_and_definitions(word_files)
 
     try:
         with open("./" + person_name.lower() + "-spelling.csv", 'r') as lines:
@@ -92,8 +120,8 @@ def spell_word():
     choose_next_word()
 
     word_blanks = "_ " * len(word)
-    print all_word_meanings[word]
-    word_speech = word + '.  As in ' + all_word_meanings[word]
+    word_speech = "Spell the word " + word + '    .  As in  ' + all_word_meanings[word] + ". "
+    print word_speech
 
     create_correct_lists()
     progress_message = "You can spell " + str(len(correct_list[correct_threshold])) + " out of " + \
@@ -168,15 +196,30 @@ def server_static(filename):
 def server_static(filename):
     return static_file(filename, root='./fonts/')
 
-def load_words_and_definitions():
+
+def load_assignments(name):
+    global word_files
+
+    try:
+        with open("./assignment/" + name.lower() + ".csv", 'r') as lines:
+            reader = csv.reader(lines)
+            for row in reader:
+                word_files.append(row[0])
+    except IOError:
+            word_files = []
+
+    for line in word_files:
+        print line
+
+
+def load_words_and_definitions(users_files):
     word_meanings = {}
     try:
-        for file in os.listdir("words"):
-            if file.endswith(".csv"):
-                with open("words/" + file, 'r') as words:
-                    reader = csv.reader(words)
-                    print file
-                    word_meanings[file] = dict((rows[0],rows[1]) for rows in reader)
+        for file in users_files:
+            with open("words/" + file + ".csv", 'r') as words:
+                reader = csv.reader(words)
+                print file
+                word_meanings[file] = dict((rows[0],rows[1]) for rows in reader)
     except IOError:
         word_meanings = {}
 
@@ -188,11 +231,12 @@ def load_words_and_definitions():
         all_word_meanings.update(words)
 
     global all_words
-    all_words = all_word_meanings.keys()
+    print all_word_meanings.keys()
+    all_words = set(all_word_meanings.keys())
 
 
 ## MAIN
 
-load_words_and_definitions()
+# load_words_and_definitions()
 run(host='0.0.0.0', port=8080, debug=True)
 
